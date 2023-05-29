@@ -12,7 +12,10 @@ Clone the repository to your local machine and open the solution in Visual Studi
 
 Then, run both Server and Client app.
 
-![run app](https://imgur.com/5VIao5v.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://imgur.com/DvSv2Om.png">
+  <img alt="Localhost diagram" src="https://imgur.com/5VIao5v.png">
+</picture>
 
 ### Connecting Client - Server in the same machine
 
@@ -55,6 +58,12 @@ On your Android device, open the TCP Client app and enter the host and port info
 Now, you can start sending messages between the client and server.
 
 ![tcp client connected](https://imgur.com/tttJfmw.png)
+
+### Bonus: LED Demo
+
+This is a bonus demo to show how the client can control the virtual 'LED' on the server.
+
+[led tcp demo.webm](https://github.com/iqfareez/TCP-App/assets/60868965/ed0739b3-36ef-4126-9ba5-6fd7529f4a41)
 
 ## Releases
 

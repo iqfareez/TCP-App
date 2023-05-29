@@ -9,12 +9,13 @@ namespace TCP_Server
     public partial class Form1 : Form
     {
         private MyTcpServer _server;
-        private bool serverConnected = false;
+        private bool _serverConnected = false;
 
         public Form1()
         {
             InitializeComponent();
             
+            // Initialize server at any IPv4 to allow connection from outside
             _server = new MyTcpServer(IPAddress.Any.ToString());
             _server.MessageReceived += Server_MessageReceived;
         }
@@ -22,15 +23,35 @@ namespace TCP_Server
         private void Server_MessageReceived(object sender, string message)
         {
             // Update the TextBox control with the received message
+            // 'Marshalled' to the UI thread using MethodInvoker
+            // NOTE: MethodInvoker can also be replaced with Action (like in slide 8, pg 27)
+            // According to SO, MethodInvoker is better use case than Action
+            // https://stackoverflow.com/questions/1167771/methodinvoker-vs-action-for-control-begininvoke
             logTextBox.Invoke((MethodInvoker)(() =>
             {
                 logTextBox.AppendText(message + Environment.NewLine);
             }));
+
+            // Check if message contains LED ON/OFF commands
+            if (message.Contains("LED ON"))
+            {
+                ledPictureBox.Invoke((MethodInvoker)(() =>
+                {
+                    ledPictureBox.Image = Properties.Resources.on_led;
+                }));
+            } 
+            if (message.Contains("LED OFF"))
+            {
+                ledPictureBox.Invoke((MethodInvoker)(() =>
+                {
+                    ledPictureBox.Image = Properties.Resources.off_led;
+                }));
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!serverConnected)
+            if (!_serverConnected)
             {
                 try
                 {
@@ -38,7 +59,7 @@ namespace TCP_Server
                     localNetworkLabel.Text = $@"127.0.0.1:{_server.Port}";
                     lanNetworkLabel.Text = $@"{GetDeviceLocalIp()}:{_server.Port}";
                     button1.Text = "Stop server";
-                    serverConnected = true;
+                    _serverConnected = true;
                 }
                 catch (Exception exception)
                 {
@@ -48,7 +69,7 @@ namespace TCP_Server
             else
             {
                 _server.Stop();
-                serverConnected = false;
+                _serverConnected = false;
                 localNetworkLabel.Text = @"N/A";
                 lanNetworkLabel.Text = @"N/A";
                 button1.Text = "Start server";

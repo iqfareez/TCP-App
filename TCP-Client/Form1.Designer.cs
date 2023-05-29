@@ -40,7 +40,10 @@
             this.statusBar1 = new System.Windows.Forms.StatusBar();
             this.disconnectButton = new System.Windows.Forms.Button();
             this.sendTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ledToggleCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // connectButton
@@ -150,11 +153,32 @@
             this.sendTextBox.Size = new System.Drawing.Size(307, 26);
             this.sendTextBox.TabIndex = 6;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ledToggleCheckBox);
+            this.groupBox2.Location = new System.Drawing.Point(18, 238);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(130, 60);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "LED Demo";
+            // 
+            // ledToggleCheckBox
+            // 
+            this.ledToggleCheckBox.Location = new System.Drawing.Point(6, 14);
+            this.ledToggleCheckBox.Name = "ledToggleCheckBox";
+            this.ledToggleCheckBox.Size = new System.Drawing.Size(128, 42);
+            this.ledToggleCheckBox.TabIndex = 1;
+            this.ledToggleCheckBox.Text = "LED ON";
+            this.ledToggleCheckBox.UseVisualStyleBackColor = true;
+            this.ledToggleCheckBox.CheckedChanged += new System.EventHandler(this.ledToggleCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 337);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.sendTextBox);
             this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.statusBar1);
@@ -166,9 +190,13 @@
             this.Text = "TCP Client";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox ledToggleCheckBox;
 
         private System.Windows.Forms.TextBox sendTextBox;
 

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP-Server", "TCP-Server\TCP-Server.csproj", "{9734770B-63D7-43DA-AC15-A2F1EA6687A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP-Client", "TCP-Client\TCP-Client.csproj", "{AF9E8319-9A2C-4B06-AEB1-8DBD0B9C8DD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9734770B-63D7-43DA-AC15-A2F1EA6687A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9734770B-63D7-43DA-AC15-A2F1EA6687A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9734770B-63D7-43DA-AC15-A2F1EA6687A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9734770B-63D7-43DA-AC15-A2F1EA6687A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9E8319-9A2C-4B06-AEB1-8DBD0B9C8DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9E8319-9A2C-4B06-AEB1-8DBD0B9C8DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9E8319-9A2C-4B06-AEB1-8DBD0B9C8DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9E8319-9A2C-4B06-AEB1-8DBD0B9C8DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

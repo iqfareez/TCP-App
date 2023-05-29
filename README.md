@@ -25,6 +25,8 @@ The client and server are configured to connect to each other using the loopback
 
 ![screenshot localhost setup](https://imgur.com/viwIKcw.png)
 
+> **Note** `localhost` can also be referenced by the loopback IP address `127.0.0.1`. This IP is fixed.
+
 In TCP Server app, click `Start Server` button to start the server. In TCP Client app, click `Connect` button to connect to the server.
 Now, you can start sending messages between the client and server.
 
@@ -35,16 +37,36 @@ Now, you can start sending messages between the client and server.
   <img alt="Local network diagram" src="https://imgur.com/fOL8DMC.png">
 </picture>
 
-In this section, I will be using Android app since I don't have extra laptop to test this out. Feel free to use any other TCP Client
+In this section, I will be using Android since I don't have extra laptop to test this out. Feel free to use any other TCP Client
 on any devices.
 
 Download [TCP Client](https://play.google.com/store/apps/details?id=com.hardcodedjoy.tcpclient) app from the Google Play Store.
 
-Start the server, note the IP address of the server. Open the TCP Client app and enter the
-information about the server. Then, click on Connect.
+From the TCP Server app, start the server. Notice there is an host:port information in the "On your network" section.
+
+![tcps erver app](https://imgur.com/lYayO93.png)
+
+> **Note** Your PC local IP address can also be found by running `ipconfig` in the command prompt.
+
+On your Android device, open the TCP Client app and enter the host and port information from the server app.
 
 ![tcp client setting](https://imgur.com/osAySn0.png)
 
 Now, you can start sending messages between the client and server.
 
 ![tcp client connected](https://imgur.com/tttJfmw.png)
+
+## Releases
+
+Don't want to build it yourself? Find the release artifact [here](https://github.com/iqfareez/TCP-App/actions).
+
+## Footnotes
+
+- CLI version of TCP Server and Client can be found [here](https://github.com/iqfareez/MCTE-4327-Software-Engineering/tree/main/ConsoleApp2-TCP)
+- Software Engineering course notes can be found [here](https://github.com/iqfareez/MCTE-4327-Software-Engineering/)
+
+## References
+
+- [TCP Listener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener)
+- [TCP Client](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient)
+- ChatGPT

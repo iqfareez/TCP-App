@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Release
-          path: bin\Release\
+          path: "**/bin/Release/"
 
 #      - name: Building the installer
 #        run: |

@@ -63,6 +63,10 @@ Now, you can start sending messages between the client and server.
 
 ![tcp client connected](https://imgur.com/tttJfmw.png)
 
+Demo:
+
+https://github.com/iqfareez/TCP-App/assets/60868965/738f869e-bdec-4e00-b0a3-39a1017b8ace
+
 ### Bonus: LED Demo
 
 This is a bonus demo to show how the client can control the virtual 'LED' on the server.
@@ -73,7 +77,7 @@ This is a bonus demo to show how the client can control the virtual 'LED' on the
 
 Don't want to build it yourself? Find the release artifact [here](https://github.com/iqfareez/TCP-App/actions).
 
-In case the artifacts has expired, just clone this repo and run the workflow by yourself.
+In case the artifacts has expired, just fork this repo and run the workflow by yourself.
 
 ## Footnotes
 
@@ -85,3 +89,5 @@ In case the artifacts has expired, just clone this repo and run the workflow by 
 - [TCP Listener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener)
 - [TCP Client](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient)
 - ChatGPT
+
+For all Software Engineering notes, go to https://github.com/iqfareez/MCTE-4327-Software-Engineering/

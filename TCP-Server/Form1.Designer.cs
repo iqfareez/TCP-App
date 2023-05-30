@@ -36,7 +36,11 @@
             this.lanNetworkLabel = new System.Windows.Forms.Label();
             this.localNetworkLabel = new System.Windows.Forms.Label();
             this.logTextBox = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ledPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ledPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -98,6 +102,7 @@
             // 
             // logTextBox
             // 
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logTextBox.Location = new System.Drawing.Point(415, 27);
             this.logTextBox.Name = "logTextBox";
@@ -105,19 +110,44 @@
             this.logTextBox.TabIndex = 2;
             this.logTextBox.Text = "";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ledPictureBox);
+            this.groupBox2.Location = new System.Drawing.Point(46, 286);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(341, 138);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "LED Demo";
+            // 
+            // ledPictureBox
+            // 
+            this.ledPictureBox.Image = global::TCP_Server.Properties.Resources.off_led;
+            this.ledPictureBox.Location = new System.Drawing.Point(23, 33);
+            this.ledPictureBox.Name = "ledPictureBox";
+            this.ledPictureBox.Size = new System.Drawing.Size(90, 90);
+            this.ledPictureBox.TabIndex = 0;
+            this.ledPictureBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "TCP Server";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ledPictureBox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox ledPictureBox;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

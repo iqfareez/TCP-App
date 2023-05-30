@@ -49,6 +49,10 @@ namespace TCP_Client
         private void Server_MessageReceived(object sender, string message)
         {
             // Update the TextBox control with the received message
+            // 'Marshalled' to the UI thread using MethodInvoker
+            // NOTE: MethodInvoker can also be replaced with Action (like in slide 8, pg 27)
+            // According to SO, MethodInvoker is better use case than Action
+            // https://stackoverflow.com/questions/1167771/methodinvoker-vs-action-for-control-begininvoke
             messageTextBox.Invoke((MethodInvoker)(() =>
             {
                 messageTextBox.AppendText("Server: " + message);
@@ -63,6 +67,12 @@ namespace TCP_Client
             portTextBox.Enabled = true;
             connectButton.Enabled = true;
             disconnectButton.Enabled = false;
+        }
+
+        private void ledToggleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // Send LED ON/OFF command to the server
+            _client.SendMessage(ledToggleCheckBox.Checked ? "LED ON" : "LED OFF");
         }
     }
 }

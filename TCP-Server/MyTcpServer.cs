@@ -29,6 +29,7 @@ namespace TCP_Server
 
         public async Task Start()
         {
+            // Abort operation if server is already running
             if (_server != null)
             {
                 throw new InvalidOperationException("Server is already running!");
@@ -91,6 +92,10 @@ namespace TCP_Server
             }
         }
 
+        /// <summary>
+        /// Send message to the UI thread
+        /// </summary>
+        /// <param name="message"></param>
         protected virtual void OnMessageReceived(string message)
         {
             MessageReceived?.Invoke(this, message);

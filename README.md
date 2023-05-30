@@ -45,6 +45,10 @@ on any devices.
 
 Download [TCP Client](https://play.google.com/store/apps/details?id=com.hardcodedjoy.tcpclient) app from the Google Play Store.
 
+Please ensure that both devices are connected **to the same network**.
+
+![wifi same network](https://imgur.com/b5ghPyY.png)
+
 From the TCP Server app, start the server. Notice there is an host:port information in the "On your network" section.
 
 ![tcps erver app](https://imgur.com/lYayO93.png)
@@ -68,6 +72,8 @@ This is a bonus demo to show how the client can control the virtual 'LED' on the
 ## Releases
 
 Don't want to build it yourself? Find the release artifact [here](https://github.com/iqfareez/TCP-App/actions).
+
+In case the artifacts has expired, just clone this repo and run the workflow by yourself.
 
 ## Footnotes
 

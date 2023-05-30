@@ -132,7 +132,7 @@
             this.statusBar1.Name = "statusBar1";
             this.statusBar1.Size = new System.Drawing.Size(695, 22);
             this.statusBar1.TabIndex = 4;
-            this.statusBar1.Text = "statusBar1";
+            this.statusBar1.Text = "Ready";
             // 
             // disconnectButton
             // 

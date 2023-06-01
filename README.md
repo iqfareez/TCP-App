@@ -79,10 +79,11 @@ Don't want to build it yourself? Find the release artifact [here](https://github
 
 In case the artifacts has expired, just fork this repo and run the workflow by yourself.
 
-## Footnotes
+## Check this out
 
-- CLI version of TCP Server and Client can be found [here](https://github.com/iqfareez/MCTE-4327-Software-Engineering/tree/main/ConsoleApp2-TCP)
-- Software Engineering course notes can be found [here](https://github.com/iqfareez/MCTE-4327-Software-Engineering/)
+- CLI version of TCP Server and Client https://github.com/iqfareez/MCTE-4327-Software-Engineering/tree/main/ConsoleApp2-TCP
+- For Software Engineering notes, go to https://github.com/iqfareez/MCTE-4327-Software-Engineering/
+- Chat App C# Project from previous semester student https://github.com/zulhafiz-zulkifli/Chat-Application (their chat UI is beautiful)
 
 ## References
 
@@ -90,4 +91,3 @@ In case the artifacts has expired, just fork this repo and run the workflow by y
 - [TCP Client](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient)
 - ChatGPT
 
-For all Software Engineering notes, go to https://github.com/iqfareez/MCTE-4327-Software-Engineering/

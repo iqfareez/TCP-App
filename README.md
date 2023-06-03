@@ -75,9 +75,9 @@ This is a bonus demo to show how the client can control the virtual 'LED' on the
 
 ## Releases
 
-Don't want to build it yourself? Find the release artifact [here](https://github.com/iqfareez/TCP-App/actions).
+See [releases](https://github.com/iqfareez/TCP-App/releases) page.
 
-In case the artifacts has expired, just fork this repo and run the workflow by yourself.
+Or, fork this repo and run the workflow [`Build C# WinForms app`](https://github.com/iqfareez/TCP-App/actions/workflows/build-app.yml) to build the artifacts.
 
 ## Check this out
 

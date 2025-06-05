@@ -28,7 +28,8 @@ The client and server are configured to connect to each other using the loopback
 
 ![screenshot localhost setup](https://imgur.com/viwIKcw.png)
 
-> **Note** `localhost` can also be referenced by the loopback IP address `127.0.0.1`. This IP is fixed.
+> [!NOTE]
+> `localhost` can also be referenced by the loopback IP address `127.0.0.1`. This IP is fixed.
 
 In TCP Server app, click `Start Server` button to start the server. In TCP Client app, click `Connect` button to connect to the server.
 Now, you can start sending messages between the client and server.
@@ -53,7 +54,8 @@ From the TCP Server app, start the server. Notice there is an host:port informat
 
 ![tcps erver app](https://imgur.com/lYayO93.png)
 
-> **Note** Your PC local IP address can also be found by running `ipconfig` in the command prompt.
+> [!NOTE]
+> Your PC local IP address can also be found by running `ipconfig` in the command prompt.
 
 On your Android device, open the TCP Client app and enter the host and port information from the server app.
 

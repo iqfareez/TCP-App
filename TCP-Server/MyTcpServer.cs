@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -11,6 +11,7 @@ namespace TCP_Server
         private TcpListener _server;
         private readonly string _ipAddress;
         private readonly int _port;
+        private readonly System.Collections.Concurrent.ConcurrentDictionary<System.Net.EndPoint, string> _nicknames = new System.Collections.Concurrent.ConcurrentDictionary<System.Net.EndPoint, string>();
 
         public event EventHandler<string> MessageReceived;
 
@@ -74,17 +75,28 @@ namespace TCP_Server
                     break; // Client disconnected
                 }
 
-                string data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 messageBuilder.Append(data);
 
                 if (data.Length > 0)
                 {
                     string receivedMessage = messageBuilder.ToString().TrimEnd();
 
-                    // Raise the MessageReceived event
-                    OnMessageReceived($"{client.Client.RemoteEndPoint}: {receivedMessage}");
+                    if (receivedMessage.StartsWith("NICK:"))
+                    {
+                        string nick = receivedMessage.Substring(5);
+                        _nicknames[client.Client.RemoteEndPoint] = nick;
+                        OnMessageReceived($"{client.Client.RemoteEndPoint} identified as: {nick}");
+                        messageBuilder.Clear();
+                        continue;
+                    }
 
-                    byte[] response = Encoding.ASCII.GetBytes(receivedMessage.ToUpper() + Environment.NewLine);
+                    string displayName = _nicknames.TryGetValue(client.Client.RemoteEndPoint, out var name) ? name : client.Client.RemoteEndPoint.ToString();
+
+                    // Raise the MessageReceived event
+                    OnMessageReceived($"{displayName}: {receivedMessage}");
+
+                    byte[] response = Encoding.UTF8.GetBytes(receivedMessage + Environment.NewLine);
                     await stream.WriteAsync(response, 0, response.Length);
 
                     messageBuilder.Clear();

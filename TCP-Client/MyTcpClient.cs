@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ namespace TCP_Client
     public class MyTcpClient
     {
         private TcpClient _client;
+        public string Nickname { get; set; } = "Guest";
 
         public event EventHandler<string> MessageReceived;
 
@@ -23,6 +24,9 @@ namespace TCP_Client
 
             // Start a separate task to receive data
             _ = ReceiveDataAsync();
+
+            // Send nickname to the server
+            SendMessage($"NICK:{Nickname}");
         }
 
         /// <summary>
@@ -32,7 +36,7 @@ namespace TCP_Client
         public void SendMessage(string message)
         {
             NetworkStream stream = _client.GetStream();
-            byte[] buffer = Encoding.ASCII.GetBytes(message);
+            byte[] buffer = Encoding.UTF8.GetBytes(message);
             stream.Write(buffer, 0, buffer.Length);
         }
 
@@ -54,7 +58,7 @@ namespace TCP_Client
                     break; // Server or client disconnected
                 }
 
-                string data = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 messageBuilder.Append(data);
 
                 if (data.Length > 0)

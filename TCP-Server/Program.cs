@@ -14,9 +14,23 @@ namespace TCP_Server
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.ThreadException += (sender, e) => {
+                Console.WriteLine($"Thread Exception: {e.Exception}");
+            };
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) => {
+                Console.WriteLine($"Unhandled Exception: {e.ExceptionObject}");
+            };
+
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Critical Error: {ex}");
+            }
         }
     }
 }

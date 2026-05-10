@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +19,48 @@ namespace TCP_Client
             
             _client = new MyTcpClient();
             _client.MessageReceived += Server_MessageReceived;
+
+            ApplyTheme(this, true);
+        }
+
+        private void ApplyTheme(Control control, bool isDarkTheme)
+        {
+            control.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(45, 45, 48) : System.Drawing.SystemColors.Control;
+            control.ForeColor = isDarkTheme ? System.Drawing.Color.White : System.Drawing.SystemColors.ControlText;
+
+            if (control is TextBox || control is RichTextBox)
+            {
+                control.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(30, 30, 30) : System.Drawing.SystemColors.Window;
+                control.ForeColor = isDarkTheme ? System.Drawing.Color.White : System.Drawing.SystemColors.WindowText;
+                if (control is TextBoxBase textBoxBase)
+                {
+                    textBoxBase.BorderStyle = BorderStyle.FixedSingle;
+                }
+            }
+            
+            if (control is Button button)
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderColor = isDarkTheme ? System.Drawing.Color.FromArgb(100, 100, 100) : System.Drawing.SystemColors.ControlDark;
+                button.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(60, 60, 60) : System.Drawing.SystemColors.Control;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyTheme(child, isDarkTheme);
+            }
+        }
+        
+        private void themeToggleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyTheme(this, themeToggleCheckBox.Checked);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var ipAddress = hostTextBox.Text;
             var port = int.Parse(portTextBox.Text);
+            _client.Nickname = nicknameTextBox.Text;
             try
             {
                 _client.Connect(ipAddress, port);
@@ -34,9 +70,10 @@ namespace TCP_Client
                 MessageBox.Show(exception.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            statusBar1.Text = $@"Connected to {ipAddress}:{port}";
+            statusLabel.Text = $@"Connected to {ipAddress}:{port}";
             hostTextBox.Enabled = false;
             portTextBox.Enabled = false;
+            nicknameTextBox.Enabled = false;
             disconnectButton.Enabled = true;
             connectButton.Enabled = false;
         }
@@ -62,9 +99,10 @@ namespace TCP_Client
         private void disconnectButton_Click(object sender, EventArgs e)
         {
             _client.Disconnect();
-            statusBar1.Text = @"Disconnected";
+            statusLabel.Text = @"Disconnected";
             hostTextBox.Enabled = true;
             portTextBox.Enabled = true;
+            nicknameTextBox.Enabled = true;
             connectButton.Enabled = true;
             disconnectButton.Enabled = false;
         }

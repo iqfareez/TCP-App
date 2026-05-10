@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,6 +18,41 @@ namespace TCP_Server
             // Initialize server at any IPv4 to allow connection from outside
             _server = new MyTcpServer(IPAddress.Any.ToString());
             _server.MessageReceived += Server_MessageReceived;
+
+            ApplyTheme(this, true);
+        }
+
+        private void ApplyTheme(Control control, bool isDarkTheme)
+        {
+            control.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(45, 45, 48) : System.Drawing.SystemColors.Control;
+            control.ForeColor = isDarkTheme ? System.Drawing.Color.White : System.Drawing.SystemColors.ControlText;
+
+            if (control is TextBox || control is RichTextBox)
+            {
+                control.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(30, 30, 30) : System.Drawing.SystemColors.Window;
+                control.ForeColor = isDarkTheme ? System.Drawing.Color.White : System.Drawing.SystemColors.WindowText;
+                if (control is TextBoxBase textBoxBase)
+                {
+                    textBoxBase.BorderStyle = BorderStyle.FixedSingle;
+                }
+            }
+            
+            if (control is Button button)
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderColor = isDarkTheme ? System.Drawing.Color.FromArgb(100, 100, 100) : System.Drawing.SystemColors.ControlDark;
+                button.BackColor = isDarkTheme ? System.Drawing.Color.FromArgb(60, 60, 60) : System.Drawing.SystemColors.Control;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyTheme(child, isDarkTheme);
+            }
+        }
+        
+        private void themeToggleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyTheme(this, themeToggleCheckBox.Checked);
         }
         
         private void Server_MessageReceived(object sender, string message)

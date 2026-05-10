@@ -1,4 +1,4 @@
-﻿namespace TCP_Client
+namespace TCP_Client
 {
     partial class Form1
     {
@@ -37,18 +37,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.hostTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.statusBar1 = new System.Windows.Forms.StatusBar();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.disconnectButton = new System.Windows.Forms.Button();
             this.sendTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ledToggleCheckBox = new System.Windows.Forms.CheckBox();
+            this.themeToggleCheckBox = new System.Windows.Forms.CheckBox();
+            this.nicknameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(12, 138);
+            this.connectButton.Location = new System.Drawing.Point(12, 170);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(136, 59);
             this.connectButton.TabIndex = 0;
@@ -79,13 +84,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nicknameTextBox);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.portTextBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.hostTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(273, 116);
+            this.groupBox1.Size = new System.Drawing.Size(273, 145);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Server Details";
@@ -126,18 +133,44 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Host:";
             // 
-            // statusBar1
+            // nicknameTextBox
             // 
-            this.statusBar1.Location = new System.Drawing.Point(0, 315);
-            this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(695, 22);
-            this.statusBar1.TabIndex = 4;
-            this.statusBar1.Text = "Ready";
+            this.nicknameTextBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nicknameTextBox.Location = new System.Drawing.Point(66, 94);
+            this.nicknameTextBox.Name = "nicknameTextBox";
+            this.nicknameTextBox.Size = new System.Drawing.Size(170, 31);
+            this.nicknameTextBox.TabIndex = 5;
+            this.nicknameTextBox.Text = "User";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 23);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Nick:";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 315);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(695, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(39, 17);
+            this.statusLabel.Text = "Ready";
             // 
             // disconnectButton
             // 
             this.disconnectButton.Enabled = false;
-            this.disconnectButton.Location = new System.Drawing.Point(154, 138);
+            this.disconnectButton.Location = new System.Drawing.Point(154, 170);
             this.disconnectButton.Name = "disconnectButton";
             this.disconnectButton.Size = new System.Drawing.Size(131, 59);
             this.disconnectButton.TabIndex = 5;
@@ -174,15 +207,28 @@
             this.ledToggleCheckBox.UseVisualStyleBackColor = true;
             this.ledToggleCheckBox.CheckedChanged += new System.EventHandler(this.ledToggleCheckBox_CheckedChanged);
             // 
+            // themeToggleCheckBox
+            // 
+            this.themeToggleCheckBox.AutoSize = true;
+            this.themeToggleCheckBox.Location = new System.Drawing.Point(154, 252);
+            this.themeToggleCheckBox.Name = "themeToggleCheckBox";
+            this.themeToggleCheckBox.Size = new System.Drawing.Size(103, 21);
+            this.themeToggleCheckBox.TabIndex = 8;
+            this.themeToggleCheckBox.Text = "Dark Theme";
+            this.themeToggleCheckBox.UseVisualStyleBackColor = true;
+            this.themeToggleCheckBox.Checked = true;
+            this.themeToggleCheckBox.CheckedChanged += new System.EventHandler(this.themeToggleCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 337);
+            this.Controls.Add(this.themeToggleCheckBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.sendTextBox);
             this.Controls.Add(this.disconnectButton);
-            this.Controls.Add(this.statusBar1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.button2);
@@ -191,6 +237,8 @@
             this.Text = "TCP Client";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,12 +246,14 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox ledToggleCheckBox;
+        private System.Windows.Forms.CheckBox themeToggleCheckBox;
 
         private System.Windows.Forms.TextBox sendTextBox;
 
         private System.Windows.Forms.Button disconnectButton;
 
-        private System.Windows.Forms.StatusBar statusBar1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox hostTextBox;
@@ -217,6 +267,8 @@
         private System.Windows.Forms.Button button2;
 
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.TextBox nicknameTextBox;
+        private System.Windows.Forms.Label label3;
 
         #endregion
     }

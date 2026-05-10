@@ -1,4 +1,4 @@
-﻿namespace TCP_Server
+namespace TCP_Server
 {
     partial class Form1
     {
@@ -38,6 +38,7 @@
             this.logTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ledPictureBox = new System.Windows.Forms.PictureBox();
+            this.themeToggleCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledPictureBox)).BeginInit();
@@ -129,11 +130,24 @@
             this.ledPictureBox.TabIndex = 0;
             this.ledPictureBox.TabStop = false;
             // 
+            // themeToggleCheckBox
+            // 
+            this.themeToggleCheckBox.AutoSize = true;
+            this.themeToggleCheckBox.Location = new System.Drawing.Point(180, 192);
+            this.themeToggleCheckBox.Name = "themeToggleCheckBox";
+            this.themeToggleCheckBox.Size = new System.Drawing.Size(103, 21);
+            this.themeToggleCheckBox.TabIndex = 4;
+            this.themeToggleCheckBox.Text = "Dark Theme";
+            this.themeToggleCheckBox.UseVisualStyleBackColor = true;
+            this.themeToggleCheckBox.Checked = true;
+            this.themeToggleCheckBox.CheckedChanged += new System.EventHandler(this.themeToggleCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.themeToggleCheckBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.groupBox1);
@@ -148,6 +162,7 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox ledPictureBox;
+        private System.Windows.Forms.CheckBox themeToggleCheckBox;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
